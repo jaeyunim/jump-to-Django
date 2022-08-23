@@ -36,10 +36,10 @@ def answer_create(request, question_id):
             answer.question = question
             answer.save()
             return redirect("pybo:detail", question_id=question.id)
-        else:
-            form = AnswerForm()
-        context = {"question": question, "form": form}
-        return render(request, "pybo/question_detail.html", context)
+    else:
+        form = AnswerForm()
+    context = {"form": form, "question": question}
+    return render(request, "pybo/question_detail.html", context)
 
 
 def question_create(request):
